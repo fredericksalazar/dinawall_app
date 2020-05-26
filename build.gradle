@@ -1,0 +1,29 @@
+plugins{
+    id  'application'
+    id  'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'application'
+
+
+description = 'dinawall_app'
+
+mainClassName = 'dinawall_app.DinawallApp'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation      'junit:junit:4.13'
+    compile group:          'org.controlsfx', name: 'controlsfx', version: '11.0.1'
+    implementation          files('../lib/dinawall_core_lib-all.jar')
+}
+
+javafx {
+    version = "14"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
