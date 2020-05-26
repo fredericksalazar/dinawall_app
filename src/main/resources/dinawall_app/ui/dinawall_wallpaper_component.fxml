@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane fx:id="dinaWallComponent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="253.0" prefWidth="244.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10 10 10 10; -fx-border-radius: 10 10 10;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="253.0" prefWidth="244.0" style="-fx-border-radius: 10 10 0 0;">
+         <children>
+            <ImageView fx:id="dinaWallPreviewImage" fitHeight="181.0" fitWidth="244.0" pickOnBounds="true" preserveRatio="true" />
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="dinaWallPreviewTitle" alignment="CENTER" prefHeight="18.0" prefWidth="244.0" text="Label" textAlignment="CENTER" />
+                  <Label fx:id="dinWallPreviewAutor" alignment="CENTER" prefHeight="18.0" prefWidth="244.0" text="Label" />
+                  <Hyperlink fx:id="dinaWallPreviewUrl" alignment="CENTER" prefHeight="14.0" prefWidth="244.0" text="Hyperlink" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
+</Pane>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dinawall_app.controller.PrimarySceneController">
+   <children>
+      <Pane prefHeight="500.0" prefWidth="250.0" style="-fx-background-color: #4cc9f0;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="58.0" prefWidth="213.0" text="DinaWall" textFill="WHITE">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <VBox fx:id="lefVBox" prefHeight="500.0" prefWidth="851.0">
+         <children>
+            <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="755.0">
+               <children>
+                  <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="620.0">
+                    <items>
+                      <Button fx:id="applyButton" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" defaultButton="true" mnemonicParsing="false" onAction="#applyButtonPressed" text="Apply" textAlignment="CENTER" textOverrun="CLIP" />
+                        <Button fx:id="deleteButton" cancelButton="true" mnemonicParsing="false" onAction="#deleteButtonPressed" text="Delete" textAlignment="CENTER" />
+                    </items>
+                  </ToolBar>
+                  <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="228.0">
+                    <items>
+                      <Button fx:id="installButton" mnemonicParsing="false" onAction="#installButtonPressed" text="Install" />
+                    </items>
+                  </ToolBar>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>
