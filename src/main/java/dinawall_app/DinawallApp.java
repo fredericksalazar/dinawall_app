@@ -17,11 +17,6 @@ import dinawall_app.model.DinaWallAppModel;
 import dinawall_app.ui.DinaWallpaperComponent;
 import dinawall_core.wallpaper.DinaWallpaper;
 
-
-/**
- *
- * @author frederick
- */
 public class DinawallApp extends Application{
     
     private Stage primaryStage;

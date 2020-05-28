@@ -4,6 +4,7 @@ import dinawall_app.DinawallApp;
 import dinawall_app.model.DinaWallAppModel;
 import dinawall_app.ui.DinaWallpaperComponent;
 import dinawall_core.DinaWallCore;
+import dinawall_core.wallpaper.DinaWallpaper;
 import java.io.File;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -41,6 +42,7 @@ public class PrimarySceneController {
     private final FileChooser fileChooser;    
     private final DinaWallCore dinawall_core;
     private final DinaWallAppModel dinawall_model;
+    private DinaWallpaperComponent selectedComponent;
 
     public PrimarySceneController() {
         this.dinawall_core = DinaWallCore.getInstance();
@@ -60,17 +62,26 @@ public class PrimarySceneController {
     @FXML
     void applyButtonPressed(ActionEvent event) {
         this.dinawall_core.setCurrentDinaWallpaper(this.dinawall_model.getSelectedWallpaper());
+        
     }
 
     @FXML
-    void deleteButtonPressed(ActionEvent event) {
-
+    void deleteButtonPressed(ActionEvent event) {        
+        this.dinawall_core.deleteDinaWallpaper(this.dinawall_model.getSelectedWallpaper());
+        this.flowPane.getChildren().remove(this.selectedComponent);
     }
     
     @FXML
     void installButtonPressed(ActionEvent event){
         File file = fileChooser.showOpenDialog(this.mainApp.getMainStage());
-        this.dinawall_core.install_dinawallpaper(file.getAbsolutePath());
+        DinaWallpaper installed = this.dinawall_core.install_dinawallpaper(file.getAbsolutePath());
+        
+        if(installed != null){
+            DinaWallpaperComponent installed_component = new DinaWallpaperComponent();
+            installed_component.setDinaWall(installed);
+            this.addDinawallPreviewComponent(installed_component);        
+            System.out.println("new .din file is -> ");
+        }
     }
 
     
@@ -86,6 +97,7 @@ public class PrimarySceneController {
                 component.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent t) {
+                      selectedComponent = component;
                       dinawall_model.setSelectedWallpaper(component.getDinaWallpaperComponent());
                     }
                 });

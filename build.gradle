@@ -20,7 +20,7 @@ repositories {
 dependencies {
     testImplementation      'junit:junit:4.13'
     compile group:          'org.controlsfx', name: 'controlsfx', version: '11.0.1'
-    implementation          files('../lib/dinawall_core_lib-all.jar')
+    implementation          files('../lib/dinawall_core_lib.jar')
 }
 
 javafx {
