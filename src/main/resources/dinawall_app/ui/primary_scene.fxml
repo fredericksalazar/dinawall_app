@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dinawall_app.controller.PrimarySceneController">
+<HBox prefHeight="600.0" prefWidth="1247.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dinawall_app.controller.PrimarySceneController">
    <children>
-      <Pane prefHeight="500.0" prefWidth="250.0" style="-fx-background-color: #4cc9f0;">
+      <Pane prefHeight="500.0" prefWidth="250.0" style="-fx-background-color: #263238;">
          <children>
             <Label layoutX="14.0" layoutY="14.0" prefHeight="58.0" prefWidth="213.0" text="DinaWall" textFill="WHITE">
                <font>
@@ -19,24 +19,28 @@
             </Label>
          </children>
       </Pane>
-      <VBox fx:id="lefVBox" prefHeight="500.0" prefWidth="851.0">
+      <Pane prefHeight="600.0" prefWidth="953.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="755.0">
+            <VBox fx:id="lefVBox" prefHeight="600.0" prefWidth="998.0" style="-fx-background-color: #FFFFFF;">
                <children>
-                  <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="620.0">
-                    <items>
-                      <Button fx:id="applyButton" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" defaultButton="true" mnemonicParsing="false" onAction="#applyButtonPressed" text="Apply" textAlignment="CENTER" textOverrun="CLIP" />
-                        <Button fx:id="deleteButton" cancelButton="true" mnemonicParsing="false" onAction="#deleteButtonPressed" text="Delete" textAlignment="CENTER" />
-                    </items>
-                  </ToolBar>
-                  <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="228.0">
-                    <items>
-                      <Button fx:id="installButton" mnemonicParsing="false" onAction="#installButtonPressed" text="Install" />
-                    </items>
-                  </ToolBar>
+                  <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="755.0" style="-fx-background-color: #FFFFFF;">
+                     <children>
+                        <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="672.0">
+                           <items>
+                              <Button fx:id="applyButton" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" defaultButton="true" mnemonicParsing="false" onAction="#applyButtonPressed" text="Apply" textAlignment="CENTER" textOverrun="CLIP" />
+                              <Button fx:id="deleteButton" cancelButton="true" mnemonicParsing="false" onAction="#deleteButtonPressed" text="Delete" textAlignment="CENTER" />
+                           </items>
+                        </ToolBar>
+                        <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="331.0">
+                           <items>
+                              <Button fx:id="installButton" mnemonicParsing="false" onAction="#installButtonPressed" text="Install" />
+                           </items>
+                        </ToolBar>
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
+            </VBox>
          </children>
-      </VBox>
+      </Pane>
    </children>
 </HBox>
