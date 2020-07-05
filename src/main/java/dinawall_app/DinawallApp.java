@@ -50,10 +50,11 @@ public class DinawallApp extends Application{
             
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
+                        
             primaryStage.show();
             
         }catch(IOException e){
-            e.printStackTrace();
+            System.err.println("error init_prmary_scene -> "+e);
         }
     }
     
@@ -75,7 +76,7 @@ public class DinawallApp extends Application{
                 } 
            }
         }catch(Exception e){
-         e.printStackTrace();
+            System.err.println("Error loaddinawallpapers -> "+e);
         }
     }
     

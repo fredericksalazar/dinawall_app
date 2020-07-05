@@ -1,6 +1,5 @@
 package dinawall_app.controller;
 
-import dinawall_app.model.DinaWallAppModel;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -8,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
@@ -16,9 +14,6 @@ public class DinaWallpaperComponentController implements Initializable {
 
     @FXML
     private Pane dinaWallComponent;
-
-    @FXML
-    private ImageView dinaWallPreviewImage;
 
     @FXML
     private Label dinaWallPreviewTitle;
@@ -34,12 +29,7 @@ public class DinaWallpaperComponentController implements Initializable {
 
     @FXML
     void initialize() {
-        assert dinaWallComponent != null : "fx:id=\"dinaWallComponent\" was not injected: check your FXML file 'dinawall_wallpaper_component.fxml'.";
-        assert dinaWallPreviewImage != null : "fx:id=\"dinaWallPreviewImage\" was not injected: check your FXML file 'dinawall_wallpaper_component.fxml'.";
-        assert dinaWallPreviewTitle != null : "fx:id=\"dinaWallPreviewTitle\" was not injected: check your FXML file 'dinawall_wallpaper_component.fxml'.";
-        assert dinWallPreviewAutor != null : "fx:id=\"dinWallPreviewAutor\" was not injected: check your FXML file 'dinawall_wallpaper_component.fxml'.";
-        assert dinaWallPreviewUrl != null : "fx:id=\"dinaWallPreviewUrl\" was not injected: check your FXML file 'dinawall_wallpaper_component.fxml'.";
-
+     
     }
 
     @Override
@@ -48,12 +38,15 @@ public class DinaWallpaperComponentController implements Initializable {
     }
     
     public void setdinaWallPreviewImage(Image image){
-        this.dinaWallPreviewImage.setImage(image);
-        clip = new Rectangle(image.getWidth(), image.getHeight());
-        clip.setArcWidth(10);
-        clip.setArcHeight(10);
-        dinaWallPreviewImage.setClip(clip);
+    
+        this.dinaWallComponent.setStyle("-fx-background-image:url("+image.getUrl()+");"
+                                      + "-fx-background-size: 100% 100%;");
         
+        clip = new Rectangle(270, 170);
+        clip.setArcWidth(30);
+        clip.setArcHeight(30);
+        dinaWallComponent.setClip(clip);
+          
     }
     
     public void setdinaWallPreviewTitle(String title){
