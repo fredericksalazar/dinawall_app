@@ -131,7 +131,7 @@ public class PrimarySceneController {
      */
     
     private void setDinaWallPaneComponent() {
-                
+        
         this.flowPane = new FlowPane();                    
         this.flowPane.setHgap(10);
         this.flowPane.setVgap(10);

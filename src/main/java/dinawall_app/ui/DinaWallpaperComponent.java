@@ -31,7 +31,8 @@ public class DinaWallpaperComponent extends AnchorPane{
     
     private void init(){
         try{            
-            FXMLLoader loader = new FXMLLoader(DinaWallpaperComponentController.class.getResource("/dinawall_app/ui/dinawall_wallpaper_component.fxml"));
+            FXMLLoader loader = new FXMLLoader(DinaWallpaperComponentController.
+                                               class.getResource("/dinawall_app/ui/dinawall_wallpaper_component.fxml"));
             
             dinaWallpaperController = new DinaWallpaperComponentController();
             loader.setController(dinaWallpaperController);
