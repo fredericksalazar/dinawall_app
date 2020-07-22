@@ -30,10 +30,9 @@ public class DinaWallpaperComponent extends AnchorPane{
     }
     
     private void init(){
-        try{
-            System.err.println("Iniciando la carga de este perro hpta ...");
-            
-            FXMLLoader loader = new FXMLLoader(DinaWallpaperComponentController.class.getResource("/dinawall_app/ui/dinawall_wallpaper_component.fxml"));
+        try{            
+            FXMLLoader loader = new FXMLLoader(DinaWallpaperComponentController.
+                                               class.getResource("/dinawall_app/ui/dinawall_wallpaper_component.fxml"));
             
             dinaWallpaperController = new DinaWallpaperComponentController();
             loader.setController(dinaWallpaperController);
@@ -70,7 +69,6 @@ public class DinaWallpaperComponent extends AnchorPane{
             }
             this.dinaWallpaperController.setdinaWallPreviewTitle(dinawallpaper.getName());
             this.dinaWallpaperController.setdinWallPreviewAutor(dinawallpaper.getAutor());
-            this.dinaWallpaperController.setdinaWallPreviewUrl(dinawallpaper.getUrl());
             
         }catch(Exception e){
             e.printStackTrace();

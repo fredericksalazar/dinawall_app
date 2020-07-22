@@ -10,7 +10,7 @@ apply plugin: 'application'
 
 description = 'dinawall_app'
 
-mainClassName = 'dinawall_app.DinawallApp'
+mainClassName = 'dinawall_app.DinaWall'
 
 repositories {
     jcenter()
@@ -26,4 +26,16 @@ dependencies {
 javafx {
     version = "14"
     modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+task buildJar(type: Jar) {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'dinawall_app.DinaWall'
+        )
+    }
+    baseName = 'dinaWall_1.0'
+    from {configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }} 
+    with jar
 }

@@ -15,9 +15,11 @@ import javafx.geometry.Bounds;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 
 public class PrimarySceneController {
@@ -102,6 +104,8 @@ public class PrimarySceneController {
                     }
                 });
                 
+                component.setEffect(new DropShadow(15, Color.GRAY));
+                
                 this.flowPane.getChildren().add(component);
             }
         }catch(Exception e){
@@ -127,11 +131,11 @@ public class PrimarySceneController {
      */
     
     private void setDinaWallPaneComponent() {
-                
+        
         this.flowPane = new FlowPane();                    
         this.flowPane.setHgap(10);
         this.flowPane.setVgap(10);
-        this.flowPane.setPadding(new Insets(10, 40, 10, 40));
+        this.flowPane.setPadding(new Insets(5,5,5,5));
         
         scrollPane = new ScrollPane();
         scrollPane.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.AS_NEEDED);
