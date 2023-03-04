@@ -1,16 +1,14 @@
 plugins{
-    id  'application'
-    id  'org.openjfx.javafxplugin' version '0.0.8'
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
 }
 
+"""
 apply plugin: 'java'
 apply plugin: 'jacoco'
 apply plugin: 'application'
-
-
-description = 'dinawall_app'
-
-mainClassName = 'dinawall_app.DinaWall'
+apply"""
 
 repositories {
     jcenter()
@@ -18,24 +16,17 @@ repositories {
 }
 
 dependencies {
-    testImplementation      'junit:junit:4.13'
-    compile group:          'org.controlsfx', name: 'controlsfx', version: '11.0.1'
-    implementation          files('../lib/dinawall_core_lib.jar')
+    testImplementation 'junit:junit:4.13'
+    implementation files('../lib/dinawall_core.jar')
+}
+
+application{
+    mainClass = 'dinawall_app.DinaWall'
 }
 
 javafx {
-    version = "14"
+    version = "19"
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
-task buildJar(type: Jar) {
-    manifest {
-        attributes(
-                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
-                'Main-Class': 'dinawall_app.DinaWall'
-        )
-    }
-    baseName = 'dinaWall_1.0'
-    from {configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }} 
-    with jar
-}
+

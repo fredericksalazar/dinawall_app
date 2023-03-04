@@ -48,7 +48,7 @@ public class DinaWallpaperComponent extends AnchorPane{
     /**
      * This method set a image inito a DinaWallpaperComponent Object, this
      * image correspond to dinawallpaper installed object .din, is returned
-     * by dinawall_core_lib
+     * by dinawallcorelib
      * 
      * @param dinawallpaper 
      */
@@ -59,11 +59,11 @@ public class DinaWallpaperComponent extends AnchorPane{
             this.dinawallpaper = dinawallpaper;
             
             if(new File(dinawallpaper.getPreview()).exists()){
-                File f_image = new File(dinawallpaper.getPreview());
+                File fimage = new File(dinawallpaper.getPreview());
                 
-                if(f_image.exists()){
-                    Image prev_image = new Image(f_image.toURI().toString(), 244, 181, false, false);
-                    this.dinaWallpaperController.setdinaWallPreviewImage(prev_image);
+                if(fimage.exists()){
+                    Image previmage = new Image(fimage.toURI().toString(), 244, 181, false, false);
+                    this.dinaWallpaperController.setdinaWallPreviewImage(previmage);
                 }
                 
             }

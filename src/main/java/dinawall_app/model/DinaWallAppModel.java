@@ -15,38 +15,38 @@ import java.util.ArrayList;
  */
 public class DinaWallAppModel {
     
-    public static DinaWallAppModel dinaApp_model;
+    public static DinaWallAppModel dinaAppmodel;
     
     private DinaWallpaper selectedWallpaper;
-    public DinaWallCore dinawall_core;
-    private ArrayList<DinaWallpaper> dinawall_list;
+    public DinaWallCore dinawallcore;
+    private ArrayList<DinaWallpaper> dinaWallList;
     
 
     private DinaWallAppModel() { 
-        System.out.println("Crando instancia de dina_model ...");
-        dinawall_core = DinaWallCore.getInstance();
-        dinawall_list = dinawall_core.get_dinawall_installed();
-        System.err.println("lista de wallpaper model contiene -> "+dinawall_list.size());
+        System.out.println("Crando instancia de dinamodel ...");
+        dinawallcore = DinaWallCore.getInstance();
+        dinaWallList = dinawallcore.get_dinawall_installed();
+        System.err.println("lista de wallpaper model contiene -> "+ dinaWallList.size());
     }
     
     
     /**
-     * This method set a dinawall_list into the modelo
-     * @param dinawall_list 
+     * This method set a dinawalllist into the modelo
+     * @param dinawalllist 
      */
-    public void setDinaWallList(ArrayList<DinaWallpaper> dinawall_list){
-        this.dinawall_list = dinawall_list;
+    public void setDinaWallList(ArrayList<DinaWallpaper> dinawalllist){
+        this.dinaWallList = dinawalllist;
     }
     
     /**
      * This method return a list of dynamic wallpapers installed, this list
-     * is returned by dinawaal_core_lib
+     * is returned by dinawaalcorelib
      * 
      * @return 
      */
     
-    public ArrayList<DinaWallpaper> getDinaWallpaperList(){
-        return this.dinawall_list;
+    public ArrayList<DinaWallpaper> getDinaWallList(){
+        return this.dinaWallList;
     }
     
     /**
@@ -76,11 +76,11 @@ public class DinaWallAppModel {
     
     public static DinaWallAppModel getInstance(){
                 
-        if(dinaApp_model == null){
-            dinaApp_model = new DinaWallAppModel();
+        if(dinaAppmodel == null){
+            dinaAppmodel = new DinaWallAppModel();
         }
         
-        return dinaApp_model;
+        return dinaAppmodel;
     }
     
     
