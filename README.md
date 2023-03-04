@@ -1,21 +1,23 @@
 # DinaWall APP
 
-It is an application written 100% in JavaFX offers the user interface to implement dynamic wallpapers in Unix systems like GNU / Linux and macOS, it implements the DinaWall_Core library.
+It is an application written 100% in JavaFX offers the user interface to implement dynamic wallpapers in Unix systems like GNU / Linux and macOS, it implements the DinaWallCore library.
 
-## DinaWall_Core
+## DinaWallCore
 
-DinaWall_App has been thought of as a decoupled system, consisting of a microkernel **DinaWall_Core Project** that is in charge of the central logic and a Graphical Interface **DinaWall_App** for the end user, this allows a much more efficient development or the implementation of new user interfaces independent of the project.
+DinaWallApp has been thought of as a decoupled system, consisting of a microkernel **DinaWallCore Project** that is in charge of the central logic and a Graphical Interface **DinaWallApp** for the end user, this allows a much more efficient development or the implementation of new user interfaces independent of the project.
 
 ## Dependencies
 
-**DinaWall_App** implements the following libraries:
+**DinaWallApp** implements the following libraries:
 
-* DinaWall_Core
+In addition to downloading the source code, you must download and compile the DinaWallCore project, so you must create a folder outside the project directory named lib and locate within it the compiled dinawallcorelib library resulting from creating the DinaWallCore jar
+
+* [DinaWallCore](https://github.com/NiconDevTeam/dinawallcore)
 * JavaFX 14
 
 ## Built in Gradle
 
-DinaWall_App has been created using Grade 6 and implements the DinaWall_core library, for the compilation process execute:
+DinaWallApp has been created using Grade 6 and implements the DinaWallcore library, for the compilation process execute:
 
 * ./gradlew buildJar
 

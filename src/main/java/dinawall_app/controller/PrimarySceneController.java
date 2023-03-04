@@ -42,13 +42,13 @@ public class PrimarySceneController {
     private FlowPane flowPane;
     
     private final FileChooser fileChooser;    
-    private final DinaWallCore dinawall_core;
-    private final DinaWallAppModel dinawall_model;
+    private final DinaWallCore dinawallcore;
+    private final DinaWallAppModel dinawallmodel;
     private DinaWallpaperComponent selectedComponent;
 
     public PrimarySceneController() {
-        this.dinawall_core = DinaWallCore.getInstance();
-        this.dinawall_model = DinaWallAppModel.getInstance();
+        this.dinawallcore = DinaWallCore.getInstance();
+        this.dinawallmodel = DinaWallAppModel.getInstance();
         
         fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(
@@ -63,25 +63,25 @@ public class PrimarySceneController {
     
     @FXML
     void applyButtonPressed(ActionEvent event) {
-        this.dinawall_core.setCurrentDinaWallpaper(this.dinawall_model.getSelectedWallpaper());
+        this.dinawallcore.setCurrentDinaWallpaper(this.dinawallmodel.getSelectedWallpaper());
         
     }
 
     @FXML
     void deleteButtonPressed(ActionEvent event) {        
-        this.dinawall_core.deleteDinaWallpaper(this.dinawall_model.getSelectedWallpaper());
+        this.dinawallcore.deleteDinaWallpaper(this.dinawallmodel.getSelectedWallpaper());
         this.flowPane.getChildren().remove(this.selectedComponent);
     }
     
     @FXML
     void installButtonPressed(ActionEvent event){
         File file = fileChooser.showOpenDialog(this.mainApp.getMainStage());
-        DinaWallpaper installed = this.dinawall_core.install_dinawallpaper(file.getAbsolutePath());
+        DinaWallpaper installed = this.dinawallcore.install_dinawallpaper(file.getAbsolutePath());
         
         if(installed != null){
-            DinaWallpaperComponent installed_component = new DinaWallpaperComponent();
-            installed_component.setDinaWall(installed);
-            this.addDinawallPreviewComponent(installed_component);        
+            DinaWallpaperComponent installedcomponent = new DinaWallpaperComponent();
+            installedcomponent.setDinaWall(installed);
+            this.addDinawallPreviewComponent(installedcomponent);        
             System.out.println("new .din file is -> ");
         }
     }
@@ -100,7 +100,7 @@ public class PrimarySceneController {
                     @Override
                     public void handle(MouseEvent t) {
                       selectedComponent = component;
-                      dinawall_model.setSelectedWallpaper(component.getDinaWallpaperComponent());
+                      dinawallmodel.setSelectedWallpaper(component.getDinaWallpaperComponent());
                     }
                 });
                 
@@ -116,11 +116,11 @@ public class PrimarySceneController {
     /**
      * This method set a main app into primary scene controller
      * 
-     * @param main_app 
+     * @param mainapp 
      */
     
-    public void setMain(DinawallApp main_app){
-        this.mainApp = main_app;
+    public void setMain(DinawallApp mainapp){
+        this.mainApp = mainapp;
     }
 
     

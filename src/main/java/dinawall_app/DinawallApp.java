@@ -31,14 +31,14 @@ public class DinawallApp extends Application{
     private FXMLLoader loader;
     
     private PrimarySceneController controller;
-    private DinaWallAppModel dinawall_model;
+    private DinaWallAppModel dinawallmodel;
 
     @Override
     public void start(Stage stage) throws Exception {
         
         Platform.setImplicitExit(false);
         
-        dinawall_model = DinaWallAppModel.getInstance();
+        dinawallmodel = DinaWallAppModel.getInstance();
         
         primaryStage = stage;
         primaryStage.setTitle("DinaWall");
@@ -61,8 +61,8 @@ public class DinawallApp extends Application{
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.setFullScreen(false);
-            primaryStage.setMaximized(false);
-            primaryStage.setResizable(false);
+            //primaryStage.setMaximized(false);
+            //primaryStage.setResizable(false);
             primaryStage.setOnCloseRequest(eh->{
                 this.primaryStage.hide();
             });
@@ -70,19 +70,19 @@ public class DinawallApp extends Application{
             primaryStage.show();
             
         }catch(IOException e){
-            System.err.println("error init_prmary_scene -> "+e);
+            System.err.println("error initprmaryscene -> "+e);
         }
     }
     
     /**
-     * This method get all dinawallpaper installed and create a dinawallpaper_component
+     * This method get all dinawallpaper installed and create a dinawallpapercomponent
      * to load in the main scene
      * 
      */
     private void loadDinaWallpapers(){
         try{
-           if(this.dinawall_model.getDinaWallpaperList().size()>0){
-               for(DinaWallpaper dinawallpaper : this.dinawall_model.getDinaWallpaperList()){
+           if(this.dinawallmodel.getDinaWallList().size()>0){
+               for(DinaWallpaper dinawallpaper : this.dinawallmodel.getDinaWallList()){
                    
                     System.err.println(dinawallpaper.toString());
                     DinaWallpaperComponent component = new DinaWallpaperComponent();
@@ -102,8 +102,8 @@ public class DinawallApp extends Application{
     
     /**
      * This method is used to have a single instance of the app, when
-     * dinawall_daemon has been started as service daemon and the user 
-     * open a new instance of dinawall_app then the system validate and 
+     * dinawalldaemon has been started as service daemon and the user 
+     * open a new instance of dinawallapp then the system validate and 
      * invoke a server to open UI.
      */
     
@@ -127,19 +127,19 @@ public class DinawallApp extends Application{
                     
                     if(request.equals("start app")){
                     
-                    System.err.println("show the dinawall_app from server ...");
+                        System.err.println("show the dinawallapp from server ...");
 
-                    Platform.runLater(() ->{
-                        this.primaryStage.show();
-                        this.primaryStage.toFront();
-                        System.out.println("Launch the new ui instance ...");
-                    });
-                }
+                        Platform.runLater(() ->{
+                            this.primaryStage.show();
+                            this.primaryStage.toFront();
+                            System.out.println("Launch the new ui instance ...");
+                        });
+                    }
                 }
                 
                 
             }catch(IOException io){
-                System.out.println("dinawall_app.controller.DinaWallServer.run()");
+                System.out.println("dinawallapp.controller.DinaWallServer.run()");
             }
         } catch(BindException e){
             try {
@@ -155,16 +155,16 @@ public class DinawallApp extends Application{
                      out.println("start app");
                     }
             } catch (IOException ex) {
-                System.out.println("dinawall_app.DinawallApp.startListenerInstance()");
+                System.out.println("dinawallapp.DinawallApp.startListenerInstance()");
             }
             
             System.exit(0);
             
         } catch (IOException ex) {
-            System.out.println("dinawall_app.DinawallApp.startListenerInstance()");
+            System.out.println("dinawallapp.DinawallApp.startListenerInstance()");
         }
         
-        },"dinawall_server_instance");
+        },"dinawallserverinstance");
         
         instanceListener.setDaemon(true);
         instanceListener.start();

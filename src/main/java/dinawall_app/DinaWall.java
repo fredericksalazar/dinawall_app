@@ -5,6 +5,7 @@
  */
 package dinawall_app;
 
+import dinawall_app.DinawallApp;
 import dinawall_core.DinaWallCore;
 import javafx.application.Application;
 
@@ -13,8 +14,6 @@ import javafx.application.Application;
  * @author fredericksalazar
  */
 public class DinaWall {
-    
-    
 
     /**
      * @param args the command line arguments
@@ -35,7 +34,7 @@ public class DinaWall {
                 }
             }else{
                 Application.launch(DinawallApp.class);
-            }   
+            }
             
         }catch(Exception e){
             e.printStackTrace();
