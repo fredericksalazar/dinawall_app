@@ -169,5 +169,9 @@ public class DinawallApp extends Application{
         instanceListener.setDaemon(true);
         instanceListener.start();
     }
+
+    public static void main(String[] args){
+        launch();
+    }
         
 }
