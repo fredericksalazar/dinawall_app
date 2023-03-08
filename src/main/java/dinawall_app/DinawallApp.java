@@ -27,14 +27,12 @@ import javafx.scene.layout.BorderPane;
 public class DinawallApp extends Application{
     
     private Stage primaryStage;
-    private BorderPane rootLayout;
-    private FXMLLoader loader;
-    
+
     private PrimarySceneController controller;
     private DinaWallAppModel dinawallmodel;
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         
         Platform.setImplicitExit(false);
         
@@ -50,10 +48,10 @@ public class DinawallApp extends Application{
 
     private void init_primary_scene() {
         try{
-            loader = new FXMLLoader();
+            FXMLLoader loader = new FXMLLoader();
             loader.setLocation(DinawallApp.class.getResource("/dinawall_app/ui/dinaWall_app.fxml"));
-            
-            rootLayout = loader.load();
+
+            BorderPane rootLayout = loader.load();
             
             controller = loader.getController();
             controller.setMain(this);
@@ -61,11 +59,8 @@ public class DinawallApp extends Application{
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.setFullScreen(false);
-            //primaryStage.setMaximized(false);
-            //primaryStage.setResizable(false);
-            primaryStage.setOnCloseRequest(eh->{
-                this.primaryStage.hide();
-            });
+            primaryStage.setResizable(false);
+            primaryStage.setOnCloseRequest(eh-> this.primaryStage.hide());
             
             primaryStage.show();
             
@@ -114,9 +109,9 @@ public class DinawallApp extends Application{
             System.out.println("creating listener instance  ...");
             
             ServerSocket server = new ServerSocket(35531);
-            
+
             try{
-                
+
                 while(true){
                     Socket client = server.accept();
 
@@ -144,12 +139,10 @@ public class DinawallApp extends Application{
         } catch(BindException e){
             try {
                 System.err.println("Other instance is runing in this moment, then open the app ui ...");
-                
-                /**
-                 * create a socket client to send message to other instance that
-                 * show the app ui
-                 */ 
-                
+
+                //create a socket client to send message to other instance that
+                //show the app ui
+
                 try (Socket clientSocket = new Socket("127.0.0.1", 35531); 
                      PrintWriter out = new PrintWriter(clientSocket.getOutputStream())) {
                      out.println("start app");

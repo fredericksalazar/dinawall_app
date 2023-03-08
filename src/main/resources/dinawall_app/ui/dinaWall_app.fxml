@@ -7,6 +7,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -43,6 +44,8 @@
                   </LinearGradient>
                </textFill>
             </Label>
+            <Pane minHeight="-Infinity" prefHeight="568.0" prefWidth="280.0" />
+            <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="17.0" prefWidth="282.0" text="Version 0.0.1" textAlignment="CENTER" textFill="#bfbfbf" textOverrun="CLIP" wrapText="true" />
          </children>
       </VBox>
    </left>
@@ -51,22 +54,29 @@
          <children>
             <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="420.0">
               <items>
-                <Button fx:id="applyButton" alignment="CENTER" cache="true" defaultButton="true" mnemonicParsing="false" onAction="#applyButtonPressed" prefWidth="150.0" style="-fx-base: #2ec4b6;" text="set wallpaper" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS" />
-                  <Button fx:id="deleteButton" cancelButton="true" mnemonicParsing="false" onAction="#deleteButtonPressed" prefWidth="150.0" style="-fx-base: #ff6b6b;" text="delete wallpaper" textAlignment="CENTER" textFill="WHITE" />
-                  <Button fx:id="installButton" alignment="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#installButtonPressed" prefWidth="150.0" style="-fx-base: #0078D7;" text="install wallpaper" textAlignment="CENTER" textFill="WHITE" />
+                <Button fx:id="applyButton" alignment="CENTER" cache="true" defaultButton="true" mnemonicParsing="false" onAction="#applyButtonPressed" prefWidth="150.0" style="-fx-base: #2ec4b6;" text="Apply wallpaper" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS" />
+                  <Button fx:id="deleteButton" cancelButton="true" mnemonicParsing="false" onAction="#deleteButtonPressed" prefWidth="150.0" style="-fx-base: #ff6b6b;" text="Delete wallpaper" textAlignment="CENTER" textFill="WHITE" />
+                  <Button fx:id="installButton" alignment="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#installButtonPressed" prefWidth="150.0" style="-fx-base: #0078D7;" text="Install wallpaper" textAlignment="CENTER" textFill="WHITE" />
               </items>
             </ToolBar>
          </children>
       </VBox>
    </center>
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
+            <Menu fx:id="menuEngine" mnemonicParsing="false" text="Engine">
+              <items>
+                <MenuItem id="start_engine" fx:id="miStartEngine" mnemonicParsing="false" onAction="#start_dinawall_engine" text="Start Engine" />
+                  <MenuItem fx:id="miStopEngine" mnemonicParsing="false" text="Stop Engine" />
+                  <MenuItem fx:id="miRestartEngine" mnemonicParsing="false" text="Restart Engine" />
+              </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
               <MenuItem mnemonicParsing="false" text="Delete" />
