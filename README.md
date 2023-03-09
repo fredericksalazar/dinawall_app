@@ -31,7 +31,5 @@ Note: Generating compiled JAR files for distribution and execution on each opera
 
 ./gradlew jar
 
-* ./gradlew buildJar
-
 
 
