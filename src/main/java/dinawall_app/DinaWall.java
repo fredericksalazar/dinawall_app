@@ -5,9 +5,7 @@
  */
 package dinawall_app;
 
-import dinawall_app.DinawallApp;
 import dinawall_core.DinaWallCore;
-import javafx.application.Application;
 
 /**
  *
@@ -26,14 +24,14 @@ public class DinaWall {
             if(args.length != 0){
                 
                 if(args[0].equals("- app")){
-                    Application.launch(DinawallApp.class);
+                    DinawallApp.main(args);
                 }
 
                 if(args[0].equals("- daemon")){
                     DinaWallCore.getInstance().init_dinawall_daemon();
                 }
             }else{
-                Application.launch(DinawallApp.class);
+                DinawallApp.main(args);
             }
             
         }catch(Exception e){

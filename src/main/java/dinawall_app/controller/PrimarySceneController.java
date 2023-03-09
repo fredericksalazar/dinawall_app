@@ -13,8 +13,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Bounds;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
@@ -25,16 +24,17 @@ import javafx.stage.FileChooser;
 public class PrimarySceneController {
     
     private DinawallApp mainApp;
-
     @FXML
     private Button applyButton;
-
     @FXML
     private Button deleteButton;
-    
     @FXML
     private Button installButton;
-    
+    @FXML private MenuBar menuBar;
+    @FXML private Menu menuEngine;
+    @FXML private MenuItem miStartEngine;
+    @FXML private MenuItem miStopEngine;
+    @FXML private MenuItem miRestartEngine;
     @FXML
     private VBox lefVBox; 
     
@@ -86,7 +86,35 @@ public class PrimarySceneController {
         }
     }
 
-    
+    @FXML
+    public void stop_dinawall_engine(){
+        try{
+            dinawallcore.stop_daemon();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void start_dinawall_engine(){
+        try{
+            dinawallcore.start_daemon();
+        }catch (Exception e){
+
+        }
+    }
+
+    @FXML
+    public void restart_dinawall_engine(){
+        try{
+            stop_dinawall_engine();
+            start_dinawall_engine();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
     /**
      * This method add a new DinawallPreviewComponent to the flowpane where
      * 

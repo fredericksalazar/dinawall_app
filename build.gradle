@@ -4,12 +4,6 @@ plugins{
     id 'org.openjfx.javafxplugin' version '0.0.13'
 }
 
-"""
-apply plugin: 'java'
-apply plugin: 'jacoco'
-apply plugin: 'application'
-apply"""
-
 repositories {
     jcenter()
     mavenCentral()
@@ -18,10 +12,9 @@ repositories {
 dependencies {
     testImplementation 'junit:junit:4.13'
     implementation files('../lib/dinawall_core.jar')
-}
-
-application{
-    mainClass = 'dinawall_app.DinaWall'
+    runtimeOnly "org.openjfx:javafx-graphics:19:win"
+    runtimeOnly "org.openjfx:javafx-graphics:19:linux"
+    runtimeOnly "org.openjfx:javafx-graphics:19:mac"
 }
 
 javafx {
@@ -29,4 +22,14 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
+mainClassName = 'dinawall_app.DinalWall'
 
+jar {
+    duplicatesStrategy = 'EXCLUDE'
+    manifest {
+        attributes 'Main-Class': 'dinawall_app.DinaWall'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

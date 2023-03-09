@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class DinaWallAppModel {
     
     public static DinaWallAppModel dinaAppmodel;
+    public static String versionApp = "0.0.1";
     
     private DinaWallpaper selectedWallpaper;
     public DinaWallCore dinawallcore;
@@ -23,10 +24,10 @@ public class DinaWallAppModel {
     
 
     private DinaWallAppModel() { 
-        System.out.println("Crando instancia de dinamodel ...");
+        System.out.println("Creating DinaWallModel  ...");
         dinawallcore = DinaWallCore.getInstance();
         dinaWallList = dinawallcore.get_dinawall_installed();
-        System.err.println("lista de wallpaper model contiene -> "+ dinaWallList.size());
+        System.err.println("Total DinaWallpaped Installed -> "+ dinaWallList.size());
     }
     
     
@@ -65,7 +66,7 @@ public class DinaWallAppModel {
      */
     
     public void setSelectedWallpaper(DinaWallpaper selectedWallpaper) {
-        System.err.println("Ha seleccionado el wallpaper -> "+selectedWallpaper.getName());
+        System.err.println("Has been selected -> "+selectedWallpaper.getName());
         this.selectedWallpaper = selectedWallpaper;
     }
     
