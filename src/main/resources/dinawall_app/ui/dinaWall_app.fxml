@@ -57,6 +57,8 @@
                 <Button fx:id="applyButton" alignment="CENTER" cache="true" defaultButton="true" mnemonicParsing="false" onAction="#applyButtonPressed" prefWidth="150.0" style="-fx-base: #2ec4b6;" text="Apply wallpaper" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS" />
                   <Button fx:id="deleteButton" cancelButton="true" mnemonicParsing="false" onAction="#deleteButtonPressed" prefWidth="150.0" style="-fx-base: #ff6b6b;" text="Delete wallpaper" textAlignment="CENTER" textFill="WHITE" />
                   <Button fx:id="installButton" alignment="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#installButtonPressed" prefWidth="150.0" style="-fx-base: #0078D7;" text="Install wallpaper" textAlignment="CENTER" textFill="WHITE" />
+                  <Pane prefHeight="29.0" prefWidth="299.0" />
+                  <Button fx:id="newWallpaper" mnemonicParsing="false" onAction="#newDynamicWallpaper" prefHeight="29.0" prefWidth="175.0" text="New Dynamic Wallpaper" />
               </items>
             </ToolBar>
          </children>
@@ -74,10 +76,10 @@
               <items>
                 <MenuItem id="start_engine" fx:id="miStartEngine" mnemonicParsing="false" onAction="#start_dinawall_engine" text="Start Engine" />
                   <MenuItem fx:id="miStopEngine" mnemonicParsing="false" text="Stop Engine" />
-                  <MenuItem fx:id="miRestartEngine" mnemonicParsing="false" text="Restart Engine" />
+                  <MenuItem fx:id="miRestartEngine" mnemonicParsing="false" onAction="#restart_dinawall_engine" text="Restart Engine" />
               </items>
             </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Tools">
             <items>
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>

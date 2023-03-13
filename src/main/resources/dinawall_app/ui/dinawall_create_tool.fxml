@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dinawall_app.controller.CreateToolController">
+   <children>
+      <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+        <items>
+            <Button fx:id="createButton" defaultButton="true" minWidth="-Infinity" mnemonicParsing="false" onAction="#createDinaWallpaper" prefWidth="200.0" text="Create Dinamic Wallpaper" />
+        </items>
+      </ToolBar>
+      <Separator prefHeight="25.0" prefWidth="772.0" visible="false" />
+      <FlowPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="projectName" prefHeight="56.0" prefWidth="770.0" promptText="Insert Project Name">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextField>
+            <Separator prefHeight="25.0" prefWidth="772.0" visible="false" />
+            <Separator orientation="VERTICAL" prefHeight="35.0" prefWidth="39.0" visible="false" />
+            <TextField fx:id="userName" prefHeight="26.0" prefWidth="300.0" promptText="Insert your name" />
+            <Separator orientation="VERTICAL" prefHeight="35.0" prefWidth="79.0" visible="false" />
+            <TextField fx:id="userEmail" prefHeight="26.0" prefWidth="300.0" promptText="Insert your Email" />
+            <Separator prefHeight="25.0" prefWidth="772.0" visible="false" />
+            <Separator orientation="VERTICAL" prefHeight="35.0" prefWidth="39.0" visible="false" />
+            <TextField fx:id="urlProject" prefHeight="25.0" prefWidth="300.0" promptText="Insert URL personal or project" />
+            <Separator orientation="VERTICAL" prefHeight="35.0" prefWidth="79.0" visible="false" />
+            <TextField fx:id="licenceProject" prefHeight="25.0" prefWidth="300.0" promptText="Type a Licence (Prefered GPL)" />
+         </children>
+      </FlowPane>
+      <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="337.0" prefWidth="771.0">
+         <content>
+            <VBox fx:id="vBoxScrollPane" alignment="CENTER" fillWidth="false" spacing="10.0">
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+               <children>
+                  <ButtonBar prefHeight="40.0" prefWidth="772.0">
+                    <buttons>
+                      <Button mnemonicParsing="false" onAction="#removeDinaWallpaperConf" style="-fx-base: #9d0208;" text="Remove" />
+                        <Button mnemonicParsing="false" onAction="#addDinaWallpaperConf" style="-fx-base: #023e8a;" text="Add" />
+                    </buttons>
+                  </ButtonBar>
+               </children></VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>
