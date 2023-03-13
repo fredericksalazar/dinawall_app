@@ -6,7 +6,7 @@
 package dinawall_app.ui;
 
 import javafx.scene.layout.AnchorPane;
-import dinawall_app.controller.DinaWallpaperComponentController;
+import dinawall_app.controller.WallpaperComponentController;
 import dinawall_core.wallpaper.DinaWallpaper;
 import java.io.File;
 import java.io.IOException;
@@ -19,22 +19,22 @@ import javafx.scene.image.Image;
  *
  * @author frederick
  */
-public class DinaWallpaperComponent extends AnchorPane{
+public class WallpaperComponent extends AnchorPane{
         
-    DinaWallpaperComponentController dinaWallpaperController;
+    WallpaperComponentController dinaWallpaperController;
     private DinaWallpaper dinawallpaper;
 
-    public DinaWallpaperComponent() {
+    public WallpaperComponent() {
         super();
         init();
     }
     
     private void init(){
         try{            
-            FXMLLoader loader = new FXMLLoader(DinaWallpaperComponentController.
+            FXMLLoader loader = new FXMLLoader(WallpaperComponentController.
                                                class.getResource("/dinawall_app/ui/dinawall_wallpaper_component.fxml"));
             
-            dinaWallpaperController = new DinaWallpaperComponentController();
+            dinaWallpaperController = new WallpaperComponentController();
             loader.setController(dinaWallpaperController);
             
             Node component = loader.load();
