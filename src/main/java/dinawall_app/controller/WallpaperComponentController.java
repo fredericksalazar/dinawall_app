@@ -10,7 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
-public class DinaWallpaperComponentController implements Initializable {
+public class WallpaperComponentController implements Initializable {
 
     @FXML
     private Pane dinaWallComponent;

@@ -5,15 +5,17 @@
  */
 package dinawall_app;
 
+import dinawall_app.controller.CreateToolController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import dinawall_app.controller.PrimarySceneController;
 import dinawall_app.model.DinaWallAppModel;
-import dinawall_app.ui.DinaWallpaperComponent;
+import dinawall_app.ui.WallpaperComponent;
 import dinawall_core.wallpaper.DinaWallpaper;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -68,6 +70,8 @@ public class DinawallApp extends Application{
             System.err.println("error initprmaryscene -> "+e);
         }
     }
+
+
     
     /**
      * This method get all dinawallpaper installed and create a dinawallpapercomponent
@@ -80,7 +84,7 @@ public class DinawallApp extends Application{
                for(DinaWallpaper dinawallpaper : this.dinawallmodel.getDinaWallList()){
                    
                     System.err.println(dinawallpaper.toString());
-                    DinaWallpaperComponent component = new DinaWallpaperComponent();
+                    WallpaperComponent component = new WallpaperComponent();
                     component.setDinaWall(dinawallpaper);
                     controller.addDinawallPreviewComponent(component);
                 } 
@@ -93,7 +97,6 @@ public class DinawallApp extends Application{
     public Stage getMainStage(){
         return this.primaryStage;
     }
-    
     
     /**
      * This method is used to have a single instance of the app, when
