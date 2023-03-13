@@ -2,17 +2,20 @@ package dinawall_app.controller;
 
 import dinawall_app.DinawallApp;
 import dinawall_app.model.DinaWallAppModel;
-import dinawall_app.ui.DinaWallpaperComponent;
+import dinawall_app.ui.WallpaperComponent;
 import dinawall_core.DinaWallCore;
 import dinawall_core.wallpaper.DinaWallpaper;
 import java.io.File;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
@@ -20,35 +23,26 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class PrimarySceneController {
-    
+
     private DinawallApp mainApp;
     @FXML
-    private Button applyButton;
-    @FXML
-    private Button deleteButton;
-    @FXML
-    private Button installButton;
-    @FXML private MenuBar menuBar;
-    @FXML private Menu menuEngine;
-    @FXML private MenuItem miStartEngine;
-    @FXML private MenuItem miStopEngine;
-    @FXML private MenuItem miRestartEngine;
-    @FXML
-    private VBox lefVBox; 
-    
-    private ScrollPane scrollPane;    
+    private VBox lefVBox;
+
     private FlowPane flowPane;
     
     private final FileChooser fileChooser;    
     private final DinaWallCore dinawallcore;
     private final DinaWallAppModel dinawallmodel;
-    private DinaWallpaperComponent selectedComponent;
+    private WallpaperComponent selectedComponent;
+    private Stage dinawallToolStg;
 
     public PrimarySceneController() {
         this.dinawallcore = DinaWallCore.getInstance();
         this.dinawallmodel = DinaWallAppModel.getInstance();
+        this.loadWallpaperCreateTool();
         
         fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(
@@ -79,11 +73,16 @@ public class PrimarySceneController {
         DinaWallpaper installed = this.dinawallcore.install_dinawallpaper(file.getAbsolutePath());
         
         if(installed != null){
-            DinaWallpaperComponent installedcomponent = new DinaWallpaperComponent();
+            WallpaperComponent installedcomponent = new WallpaperComponent();
             installedcomponent.setDinaWall(installed);
             this.addDinawallPreviewComponent(installedcomponent);        
             System.out.println("new .din file is -> ");
         }
+    }
+
+    @FXML
+    public void newDynamicWallpaper(){
+        dinawallToolStg.show();
     }
 
     @FXML
@@ -121,7 +120,7 @@ public class PrimarySceneController {
      * @param component 
      */
     
-    public void addDinawallPreviewComponent(DinaWallpaperComponent component){        
+    public void addDinawallPreviewComponent(WallpaperComponent component){
         try{
             if(component != null){                
                 component.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -164,8 +163,8 @@ public class PrimarySceneController {
         this.flowPane.setHgap(10);
         this.flowPane.setVgap(10);
         this.flowPane.setPadding(new Insets(5,5,5,5));
-        
-        scrollPane = new ScrollPane();
+
+        ScrollPane scrollPane = new ScrollPane();
         scrollPane.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.setFitToHeight(true);
@@ -178,8 +177,22 @@ public class PrimarySceneController {
             }
         });
         
-        this.scrollPane.setContent(flowPane);
+        scrollPane.setContent(flowPane);
         this.lefVBox.getChildren().add(scrollPane);
+    }
+
+    public void loadWallpaperCreateTool(){
+        try{
+            CreateToolController createToolController = new CreateToolController();
+            FXMLLoader loader = new FXMLLoader(PrimarySceneController.class.getResource("/dinawall_app/ui/dinawall_create_tool.fxml"));
+            VBox vCreateTool = loader.load();
+            dinawallToolStg = new Stage();
+            dinawallToolStg.setResizable(false);
+            createToolController.addDinaWallpaperConf();
+            dinawallToolStg.setScene(new Scene(vCreateTool));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     
 }
