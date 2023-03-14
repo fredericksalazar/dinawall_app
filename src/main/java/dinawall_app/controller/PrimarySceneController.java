@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -190,6 +191,19 @@ public class PrimarySceneController {
             dinawallToolStg.setResizable(false);
             createToolController.addDinaWallpaperConf();
             dinawallToolStg.setScene(new Scene(vCreateTool));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void showAbout(){
+        try{
+            FXMLLoader loader = new FXMLLoader(PrimarySceneController.class.getResource("/dinawall_app/ui/dinawall_about.fxml"));
+            BorderPane aboutPane = loader.load();
+            Stage dinawallAboutStg = new Stage();
+            dinawallAboutStg.setResizable(false);
+            dinawallAboutStg.setScene(new Scene(aboutPane));
+            dinawallAboutStg.show();
         }catch (Exception e){
             e.printStackTrace();
         }
