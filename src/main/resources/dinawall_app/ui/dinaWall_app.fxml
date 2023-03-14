@@ -45,7 +45,7 @@
                </textFill>
             </Label>
             <Pane minHeight="-Infinity" prefHeight="568.0" prefWidth="280.0" />
-            <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="17.0" prefWidth="282.0" text="Version 0.0.1" textAlignment="CENTER" textFill="#bfbfbf" textOverrun="CLIP" wrapText="true" />
+            <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="17.0" prefWidth="282.0" text="Version 0.2" textAlignment="CENTER" textFill="#bfbfbf" textOverrun="CLIP" wrapText="true" />
          </children>
       </VBox>
    </left>
@@ -86,7 +86,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#showAbout" text="About" />
             </items>
           </Menu>
         </menus>

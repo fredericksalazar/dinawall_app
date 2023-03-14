@@ -15,28 +15,31 @@
    <children>
       <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
         <items>
-            <Button fx:id="createButton" defaultButton="true" minWidth="-Infinity" mnemonicParsing="false" onAction="#createDinaWallpaper" prefWidth="200.0" text="Create Dinamic Wallpaper" />
+            <Button fx:id="createButton" defaultButton="true" minWidth="-Infinity" mnemonicParsing="false" onAction="#createDinaWallpaper" prefWidth="200.0" style="-fx-base: #023e8a;" text="Create Dinamic Wallpaper" />
         </items>
       </ToolBar>
       <Separator prefHeight="25.0" prefWidth="772.0" visible="false" />
       <FlowPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <TextField fx:id="projectName" prefHeight="56.0" prefWidth="770.0" promptText="Insert Project Name">
+            <TextField fx:id="projectName" prefHeight="45.0" prefWidth="748.0" promptText="Insert Project Name" style="-fx-text-inner-color: #6c757d;">
                <font>
                   <Font size="24.0" />
                </font>
             </TextField>
             <Separator prefHeight="25.0" prefWidth="772.0" visible="false" />
             <Separator orientation="VERTICAL" prefHeight="35.0" prefWidth="39.0" visible="false" />
-            <TextField fx:id="userName" prefHeight="26.0" prefWidth="300.0" promptText="Insert your name" />
+            <TextField fx:id="userName" prefHeight="26.0" prefWidth="300.0" promptText="Insert your name" style="-fx-text-inner-color: 6c757d;" />
             <Separator orientation="VERTICAL" prefHeight="35.0" prefWidth="79.0" visible="false" />
-            <TextField fx:id="userEmail" prefHeight="26.0" prefWidth="300.0" promptText="Insert your Email" />
+            <TextField fx:id="userEmail" prefHeight="26.0" prefWidth="300.0" promptText="Insert your Email" style="-fx-text-inner-color: 6c757d;" />
             <Separator prefHeight="25.0" prefWidth="772.0" visible="false" />
             <Separator orientation="VERTICAL" prefHeight="35.0" prefWidth="39.0" visible="false" />
-            <TextField fx:id="urlProject" prefHeight="25.0" prefWidth="300.0" promptText="Insert URL personal or project" />
+            <TextField fx:id="urlProject" prefHeight="25.0" prefWidth="300.0" promptText="Insert URL personal or project" style="-fx-text-inner-color: 6c757d;" />
             <Separator orientation="VERTICAL" prefHeight="35.0" prefWidth="79.0" visible="false" />
-            <TextField fx:id="licenceProject" prefHeight="25.0" prefWidth="300.0" promptText="Type a Licence (Prefered GPL)" />
+            <TextField fx:id="licenceProject" prefHeight="25.0" prefWidth="300.0" promptText="Type a Licence (Prefered GPL)" style="-fx-text-inner-color: 6c757d;" />
          </children>
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
       </FlowPane>
       <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="337.0" prefWidth="771.0">
          <content>
@@ -48,7 +51,7 @@
                   <ButtonBar prefHeight="40.0" prefWidth="772.0">
                     <buttons>
                       <Button mnemonicParsing="false" onAction="#removeDinaWallpaperConf" style="-fx-base: #9d0208;" text="Remove" />
-                        <Button mnemonicParsing="false" onAction="#addDinaWallpaperConf" style="-fx-base: #023e8a;" text="Add" />
+                        <Button mnemonicParsing="false" onAction="#addDinaWallpaperConf" style="-fx-base: #6c757d;" text="Add" />
                     </buttons>
                   </ButtonBar>
                </children></VBox>
