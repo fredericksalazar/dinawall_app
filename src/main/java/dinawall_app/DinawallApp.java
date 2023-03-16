@@ -82,7 +82,6 @@ public class DinawallApp extends Application{
         try{
            if(this.dinawallmodel.getDinaWallList().size()>0){
                for(DinaWallpaper dinawallpaper : this.dinawallmodel.getDinaWallList()){
-                   
                     System.err.println(dinawallpaper.toString());
                     WallpaperComponent component = new WallpaperComponent();
                     component.setDinaWall(dinawallpaper);

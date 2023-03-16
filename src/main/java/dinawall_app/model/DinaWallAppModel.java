@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class DinaWallAppModel {
     
     public static DinaWallAppModel dinaAppmodel;
-    public static String versionApp = "0.0.1";
+    public static String versionApp = "0.3";
     
     private DinaWallpaper selectedWallpaper;
     public DinaWallCore dinawallcore;

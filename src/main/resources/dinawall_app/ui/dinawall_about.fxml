@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <Label text="DinaWall" textFill="#8a8a8a" BorderPane.alignment="CENTER">
@@ -19,6 +18,6 @@
       <Insets right="10.0" />
    </opaqueInsets>
    <center>
-      <TextArea prefHeight="200.0" prefWidth="200.0" text="Version: 0.2&#10;Built With: JavaFX 19&#10;Autor: Frederick Salazar (@FrederickSalazar)&#10;&#10;&#10;Changes log:&#10;&#10;0.2&#10;- Added control of Engine in menu bar&#10;- Added UI tool to create Dynamic Wallpapers&#10;- Added suppor to Gnome Desktop Enviroment&#10;- Bug Fixed files managment&#10;- Added about information&#10;&#10;0.1&#10;-  Added support to KDE desktop enviroment&#10;- Added support to macOS desktop enviroment&#10;- Install new dynamic wallpapers&#10;- Created a engine of Dynamic Wallpapers&#10;- Init project" BorderPane.alignment="CENTER" />
+      <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="DinaWall App version: 0.2.3&#10;DinaWall Core version: 0.8.1&#10;Built With: JavaFX 19&#10;&#10;Contributors:&#10;     Autor: Frederick Salazar (@FrederickSalazar)&#10;     Email: fsalazars@uoc.edu&#10;&#10;Changes log:&#10;&#10;0.3&#10;- Set the wallpaper closest to the system time when a wallpaper is applied&#10;- add border color blue to selected Dynamic Wallpaper&#10;&#10;0.2&#10;- Added control of Engine in menu bar&#10;- Added UI tool to create Dynamic Wallpapers&#10;- Added suppor to Gnome Desktop Enviroment&#10;- Bug Fixed files managment&#10;- Added about information&#10;&#10;0.1&#10;-  Added support to KDE desktop enviroment&#10;- Added support to macOS desktop enviroment&#10;- Install new dynamic wallpapers&#10;- Created a engine of Dynamic Wallpapers&#10;- Init project" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

@@ -55,7 +55,6 @@ public class WallpaperComponent extends AnchorPane{
     
     public void setDinaWall(DinaWallpaper dinawallpaper){
         try{
-            
             this.dinawallpaper = dinawallpaper;
             
             if(new File(dinawallpaper.getPreview()).exists()){
@@ -73,6 +72,14 @@ public class WallpaperComponent extends AnchorPane{
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void setSelected(){
+        this.dinaWallpaperController.setSelectedStyle();
+    }
+
+    public void setUnselected(){
+        this.dinaWallpaperController.setUnSelectedStyle();
     }
     
     public DinaWallpaper getDinaWallpaperComponent(){
