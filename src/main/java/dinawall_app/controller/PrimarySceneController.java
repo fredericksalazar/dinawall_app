@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
@@ -59,7 +60,6 @@ public class PrimarySceneController {
     @FXML
     void applyButtonPressed(ActionEvent event) {
         this.dinawallcore.setCurrentDinaWallpaper(this.dinawallmodel.getSelectedWallpaper());
-        
     }
 
     @FXML
@@ -128,17 +128,27 @@ public class PrimarySceneController {
                     @Override
                     public void handle(MouseEvent t) {
                       selectedComponent = component;
+                      updateSelectedComponent();
                       dinawallmodel.setSelectedWallpaper(component.getDinaWallpaperComponent());
                     }
                 });
                 
                 component.setEffect(new DropShadow(15, Color.GRAY));
-                
-                this.flowPane.getChildren().add(component);
+                flowPane.getChildren().add(component);
             }
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    private void updateSelectedComponent(){
+
+        for (Node child : flowPane.getChildren()) {
+            WallpaperComponent component = (WallpaperComponent) child;
+            component.setUnselected();
+        }
+
+        selectedComponent.setSelected();
     }
     
     /**
