@@ -5,11 +5,10 @@
  */
 package dinawall_app;
 
-import dinawall_app.controller.CreateToolController;
+import dinawall_core.DinaWallCore;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -32,6 +31,7 @@ public class DinawallApp extends Application{
 
     private PrimarySceneController controller;
     private DinaWallAppModel dinawallmodel;
+    private DinaWallCore dinaWallCore;
 
     @Override
     public void start(Stage stage) {
@@ -39,6 +39,7 @@ public class DinawallApp extends Application{
         Platform.setImplicitExit(false);
         
         dinawallmodel = DinaWallAppModel.getInstance();
+        dinaWallCore = DinaWallCore.getInstance();
         
         primaryStage = stage;
         primaryStage.setTitle("DinaWall");
@@ -46,6 +47,7 @@ public class DinawallApp extends Application{
         init_primary_scene();
         startListenerInstance();
         loadDinaWallpapers();
+        dinaWallCore.init_dinawall_daemon();
     }
 
     private void init_primary_scene() {
@@ -57,7 +59,6 @@ public class DinawallApp extends Application{
             
             controller = loader.getController();
             controller.setMain(this);
-            
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.setFullScreen(false);
@@ -71,8 +72,6 @@ public class DinawallApp extends Application{
         }
     }
 
-
-    
     /**
      * This method get all dinawallpaper installed and create a dinawallpapercomponent
      * to load in the main scene
