@@ -1,3 +1,16 @@
+/**
+ * Copyright(C) Frederick Salazar Sanchez <fredefass01@gmail.com
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, version 3 of the License.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package dinawall_app.controller;
 
 import dinawall_app.DinawallApp;
@@ -27,6 +40,11 @@ import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+/**
+ * This class ins a controller of the main UI DinaWall App
+ * add support for all operations.
+ */
+
 public class PrimarySceneController {
 
     private DinawallApp mainApp;
@@ -51,23 +69,30 @@ public class PrimarySceneController {
                 new FileChooser.ExtensionFilter("Text Files","*.json")
         );        
     }
-    
+
+    /**
+     * Initializes the fundamental UI components
+     */
     @FXML
     void initialize() {
         setDinaWallPaneComponent();
     }
-    
-    @FXML
-    void applyButtonPressed(ActionEvent event) {
-        this.dinawallcore.setCurrentDinaWallpaper(this.dinawallmodel.getSelectedWallpaper());
-    }
 
+    /**
+     * Remove a DinaWallPaper selected
+     * @param event
+     */
     @FXML
     void deleteButtonPressed(ActionEvent event) {        
         this.dinawallcore.deleteDinaWallpaper(this.dinawallmodel.getSelectedWallpaper());
         this.flowPane.getChildren().remove(this.selectedComponent);
     }
-    
+
+    /**
+     * When invoked then open process to install a new Dynamic Wallpaper
+     * en json format
+     * @param event
+     */
     @FXML
     void installButtonPressed(ActionEvent event){
         File file = fileChooser.showOpenDialog(this.mainApp.getMainStage());
@@ -81,11 +106,19 @@ public class PrimarySceneController {
         }
     }
 
+    /**
+     * Open a tool to create a new Dynamic Wallpaper using
+     * UI of DinaWall
+     */
     @FXML
     public void newDynamicWallpaper(){
         dinawallToolStg.show();
     }
 
+    /**
+     * Stop the daemon that execute cron jobs
+     * to set wallpapers
+     */
     @FXML
     public void stop_dinawall_engine(){
         try{
@@ -95,15 +128,23 @@ public class PrimarySceneController {
         }
     }
 
+    /**
+     * Start the daemon that execute cron jobs
+     * to set wallpapers
+     */
     @FXML
     public void start_dinawall_engine(){
         try{
             dinawallcore.start_daemon();
         }catch (Exception e){
-
+            e.printStackTrace();
         }
     }
 
+    /**
+     * Restart the daemon that execute cron jobs
+     * to set wallpapers
+     */
     @FXML
     public void restart_dinawall_engine(){
         try{
@@ -120,7 +161,6 @@ public class PrimarySceneController {
      * 
      * @param component 
      */
-    
     public void addDinawallPreviewComponent(WallpaperComponent component){
         try{
             if(component != null){                
@@ -130,6 +170,7 @@ public class PrimarySceneController {
                       selectedComponent = component;
                       updateSelectedComponent();
                       dinawallmodel.setSelectedWallpaper(component.getDinaWallpaperComponent());
+                      dinawallcore.setCurrentDinaWallpaper(dinawallmodel.getSelectedWallpaper());
                     }
                 });
                 
@@ -141,13 +182,16 @@ public class PrimarySceneController {
         }
     }
 
+    /**
+     * This method is used to update border color of DynaWallpaperComponent
+     * when is selected. then deselected all components and select the
+     * new component.
+     */
     private void updateSelectedComponent(){
-
         for (Node child : flowPane.getChildren()) {
             WallpaperComponent component = (WallpaperComponent) child;
             component.setUnselected();
         }
-
         selectedComponent.setSelected();
     }
     
@@ -156,7 +200,6 @@ public class PrimarySceneController {
      * 
      * @param mainapp 
      */
-    
     public void setMain(DinawallApp mainapp){
         this.mainApp = mainapp;
     }
@@ -167,7 +210,6 @@ public class PrimarySceneController {
      * by every .din file loaded
      * 
      */
-    
     private void setDinaWallPaneComponent() {
         
         this.flowPane = new FlowPane();                    
@@ -192,6 +234,9 @@ public class PrimarySceneController {
         this.lefVBox.getChildren().add(scrollPane);
     }
 
+    /**
+     * This method load de UI Tool to create a new Dynamic Wallpapers
+     */
     public void loadWallpaperCreateTool(){
         try{
             CreateToolController createToolController = new CreateToolController();
@@ -206,6 +251,9 @@ public class PrimarySceneController {
         }
     }
 
+    /**
+     * This method show about info in DynaWallApp
+     */
     public void showAbout(){
         try{
             FXMLLoader loader = new FXMLLoader(PrimarySceneController.class.getResource("/dinawall_app/ui/dinawall_about.fxml"));
